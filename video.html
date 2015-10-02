@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>Tecnoquímicas Farma</title>
+        <link href="css/video.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/video.js"></script>
+    </head>
+    <body>
+        <header>
+            <div id="encabezado">
+                <div id='titulo'>
+                    <a href="#"><img id="home" src="img/congreso_home.jpg" alt="home"/></a>
+                    <img id="logo" src="img/logo_congresoOnline.png">
+                    <!--<h2>Tecnoquímicas</h2>-->
+                </div>
+                <div id="menu-fijo">
+                    <div id="1">Gastrointestinal</div>
+                    <div id="2">Ortopedia</div>
+                    <div id="3">Otorrino</div>
+                    <div id="4">Pediatría</div>
+                </div>
+            </div>
+        </header>
+        <section id="seccion-info">
+            <div id="contenedor-info">
+                <div id="info-conferencia">
+                    <h1>Actualización en Rinitis</h1>
+                    <h2>Dr. Gustavo Ordoñez</h2>
+                </div>
+                <div id="terapia">
+                    <div id="nombre-terapia"><h1>Pediatría</h1></div>
+                    <img src="img/actualidad_pediatria.png"></img>
+                </div>
+            </div>
+        </section>
+        <section class="muestra-congresos">
+            <!--<img src="img/icono-otorrino.png" alt="otorrino">
+            <div id="present">
+                <div id="nombre-conferencia">Reflujo laringofaríngeo</div>
+                <div id="presentador-conferencia">Dr. Andres Vallejo</div>
+            </div>-->
+            <video preload="auto" autoplay id="principal">
+                <source src="https://player.vimeo.com/external/138166011.hd.mp4?s=f448b77777f2aa5f82c3450a407d6445&profile_id=113" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div id="conferencia-capitulos">
+                <div id="pauta">
+                    <a id="img-pauta" href="http://www.tqfarma.com/productos/vademecum-tecnoquimicas/linea-respiratoria/alerfast" target="_blank">
+                    <img src="img/pauta_alerfast.png"/></a>
+                    <div id="contenedor-cap">
+                        <a href="#"><div class="capitulos capitulo-activo">Capitulo 1</div></a>
+                        <a href="#"><div class="capitulos">Capitulo 2</div></a>
+                        <a href="#"><div class="capitulos">Capitulo 3</div></a>
+                        <a href="#"><div class="capitulos">Capitulo 4</div></a>
+                        <a href="#"><div class="capitulos">Capitulo 5</div></a>
+                    </div>
+                </div>
+                <div id="calificacion">
+                    <div id="titulo-calificacion">Calificar esta conferencia</div>
+                    <div id="estrellas-calificacion">
+                       <!-- <img src="img/estrellita-llena.png" alt="estrella-calificacion" />
+                        <img src="img/estrellita-llena.png" alt="estrella-calificacion" />
+                        <img src="img/estrellita-llena.png" alt="estrella-calificacion" />
+                        <img src="img/estrellita.png" alt="estrella-calificacion" />
+                        <img src="img/estrellita.png" alt="estrella-calificacion" />-->
+                        <fieldset class="rating">
+                            <input type="radio" id="star5" name="rating" value="5" />
+                            <label class = "full" for="star5" ></label> 
+                            <input type="radio" id="star4" name="rating" value="4" />
+                            <label class = "full" for="star4" ></label>   
+                            <input type="radio" id="star3" name="rating" value="3" />
+                            <label class = "full" for="star3" ></label>    
+                            <input type="radio" id="star2" name="rating" value="2" />
+                            <label class = "full" for="star2" ></label>
+                            <input type="radio" id="star1" name="rating" value="1" />
+                            <label class = "full" for="star1" ></label>
+                        </fieldset>
+                    </div>
+                    
+                    
+                    <div id="promedio">
+                        <div id="total-promedio">4</div>
+                        <div id="grupo-izquierda">
+                            <div id="estrellas-promedio">
+                            <img src="img/estrellita-llena.png" alt="estrella-calificacion" />
+                            <img src="img/estrellita-llena.png" alt="estrella-calificacion" />
+                            <img src="img/estrellita-llena.png" alt="estrella-calificacion" />
+                            <img src="img/estrellita.png" alt="estrella-calificacion" />
+                            <img src="img/estrellita.png" alt="estrella-calificacion" />
+                        </div>
+                        <img src="img/munequito.png" alt="munequin" id="munequin"/>
+                        <div id="cantidad-votantes">216</div>
+                        </div>
+                        
+                    </div>
+                </div>
+               
+            </div>
+            <div id="conferencia-navegacion">
+                <a href="#"><div id="regresar">&lt; Regresar</div></a>
+                <a href="#"><div id="siguiente">Siguiente Conferencia &gt;</div></a>
+            </div>
+        </section>
+        <footer>
+           <!-- <div id="med">
+                <div class="nombre-med">Aflux®</div>
+                <div class="nombre-med">Rinaid®</div>
+                <div class="nombre-med">Benzirin® Verde</div>
+                <div class="nombre-med">Aflux®</div>
+            </div>-->
+            <div id="logo-tq">
+                <img src="img/tqLogo.png">
+            </div>
+        </footer>
+    </body>
+    <script>
+        var ua = navigator.userAgent.toLowerCase(); 
+          if (ua.indexOf('safari') != -1) { 
+            if (ua.indexOf('chrome') > -1) {
+                //alert("1") // Chrome
+            } else {
+                //alert("2") // Safari
+                $("#principal").prop("controls",true);
+                document.ontouchmove = function(event){
+                    event.preventDefault();
+                }
+                setTimeout(function(){
+                    var videoInt = $('#principal');
+                    videoInt[0].play();
+                }, 1500);
+            }
+          }
+    </script>
+</html>
