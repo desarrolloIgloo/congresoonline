@@ -1,7 +1,8 @@
 @font-face {
     font-family: 'NeoSansIntel';
     src: url('../fonts/NeoSansIntel.eot');
-    src: url('../fonts/NeoSansIntel.ttf') format('truetype');
+    src: url('../fonts/NeoSansIntel.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/NeoSansIntel.ttf') format('truetype');
 }
 
 html {
@@ -25,6 +26,10 @@ body {
     z-index: 2;
     margin: 0 auto;
     text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display:none;
 }
 
 #menu-inicio {
@@ -32,17 +37,18 @@ body {
     left: 50%;
     z-index: 3;
     position: absolute;
-    margin-top: -8.7%;
+    margin-top: -22.5vh;
     margin-left: -15%;
 }
 
 #btn-ingreso-gastro,
+#btn-ingreso-neuro,
 #btn-ingreso-ortopedia,
 #btn-ingreso-otorrino,
 #btn-ingreso-pediatria,
 #btn-ingreso-otras {
     width: 13.8vw;
-    height: 2vw;
+    height: 4.7vh;
     cursor: pointer;
 }
 
@@ -54,7 +60,9 @@ body {
     width: 100%;
     height: 100%;
     display: block;
-    visibility: hidden;
+    overflow:hidden;
+    right:0;
+    bottom:0;
 }
 
 
@@ -114,13 +122,14 @@ body {
     position: absolute;
     width: 100%;
     display: none;
-    top: 50%;
-    margin-top: -23%;
+   
 }
 
 #menu {
     margin: 0 auto;
-    width: 65%;
+    min-width: 73%;
+    max-width: 80%;
+    width: auto;
 }
 
 #menu img {
@@ -131,6 +140,7 @@ body {
     background-color: white;
     list-style: none;
     padding: 0.6% 0%;
+    margin-top: 0;
 }
 
 #menu li {
@@ -160,14 +170,14 @@ body {
 /*Pabellones*/
 
 #pabellon-gastro,
+#pabellon-neuro,
 #pabellon-ortopedia,
 #pabellon-otorrino,
 #pabellon-pediatria,
 #pabellon-otras {
-    display: block;
+    display: none;
     z-index: 4;
     position: absolute;
-    visibility: hidden;
     width: 100%;
     height: 100%;
 }
@@ -177,33 +187,51 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -9.5%;
+    margin-top: -21.5vh;
     margin-left: -10%;
 }
 
 .boton-interior {
-    height: 4vw;
+    height: 9.5vh;
     width: 19.8vw;
     margin-bottom: 1.4vh;
+
 }
 
 .poster-video {
-    display: none;
+    display: block;
     z-index: 4;
-    object-fit: scale-down;
     box-sizing: border-box;
     height: 100%;
     width: 100%;
 }
 
-@media (max-width:1024px) {
-    #menu-inicio {
-        margin-top: -7.5%;
-    }
-    #nav{
-        margin-top:-24%;
-    }
-    #menu{
-        width:69%;
-    }
+.zoom{
+        transition: 3s ;
+ 		-moz-transition: 3s ; /* Firefox */
+ 		-webkit-transition: 3s ; /* Chrome - Safari */
+ 		-o-transition: 3s ; /* Opera */
+ 		transform : translate(30%,-50%) scale(4);
+		-moz-transform : translate(30%,-50%) scale(4); /* Firefox */
+		-webkit-transform : translate(30%,-50%) scale(4); /* Chrome - Safari */
+		-o-transform : translate(30%,-50%) scale(4); /* Opera */
+		-ms-transform : translate(30%,-50%) scale(4); /* IE9 */
+		opacity: 0;
+		
+}
+
+#fuente{
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 21%;
+    margin-left: 14%;
+    margin-top: 3%;
+    opacity:0.7;
+}
+.ave{
+    position:absolute;
+    top: 52%;
+    left: 69%;
+    width: 8%;
 }

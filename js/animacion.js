@@ -1,10 +1,8 @@
 $(document).ready(function() {
-    var x = document.getElementsByClassName("video-interna");
-    x.preload = 'auto';
-    $('.pabellon > video').get(0).pause();
+   
 
-     var ua = navigator.userAgent.toLowerCase(); 
-     if (ua.indexOf('safari') != -1) { 
+     //var ua = navigator.userAgent.toLowerCase(); 
+     /*if (ua.indexOf('safari') != -1) { 
        if (ua.indexOf('chrome') > -1) {
            //alert("1") // Chrome
        } else {
@@ -15,31 +13,41 @@ $(document).ready(function() {
                event.preventDefault();
            }
        }
-     }
-
+     }*/
+     $(window).load(function(){
+         $("#ingreso").css('display','block')
+     });
+       
 });
 
-function ingresar(pabellon, video) {
+function ingresar(pabellon) {
+    $("#ingreso").addClass('zoom');
+    /*$("#ingreso").animate({
+        left: 520,
+        top: -300,
+    },5);*/
     $("#ingreso").css('z-index', 1);
-    $("#ingreso").css('display', 'none');
-
+    // $("#ingreso").fadeOut(1000);
+    // $("#ingreso").animate({duration:1000,function(){$("#ingreso").css('display','none'); }});
     $("#menu-inicio").css('z-index', 2);
     $("#menu-inicio").css('display', 'none');
-
-    $("#interior").css('z-index', 3);
-    $("#interior").css('visibility', 'visible');
-
-    $(pabellon).css('visibility', 'visible')
-    var videoInt = $(video);
-    console.log(video)
-    videoInt.get(0).play();
-}
-
-                    
-function mostrarMenu() {
-    $("#nav").fadeIn(1000);
+    setTimeout(function(){$(pabellon).fadeIn(1000);
+    $("#nav").fadeIn(1000);},2000); 
    
 }
+function animarIngreso(pabellon){
+    
+}
+function mostrarPabellon(){
+    //$("#ingreso").css('display', 'none');
+    //$("#interior").css('z-index', 3);
+    //$("#interior").css('display', 'block');
+    
+}                   
+function mostrarMenu() {
+   
+}
+
 function iniciar() {
     var videoInt = $('#video1');
     videoInt[0].play();
@@ -47,12 +55,14 @@ function iniciar() {
 }
 function cambiarPabellon(pabNuevo) {
     var pabAnterior = $(".pabellon").filter(function() {
-        return $(this).css("visibility") === "visible";
+        return $(this).css("display") === "block";
     });
 
     pabAnterior = $(pabAnterior).attr("id");
     var pabOculto = '#' + pabAnterior;
-    if ($(pabAnterior + '> video').css('display') !== 'none') {
+    $(pabOculto).fadeOut(1000);
+    $(pabNuevo).fadeIn(1000);
+    /*if ($(pabAnterior + '> video').css('display') !== 'none') {
         $(pabOculto).css({
             opacity: 1.0,
             visibility: "visible"
@@ -89,6 +99,6 @@ function cambiarPabellon(pabNuevo) {
 
             });
         }
-    }
+    }*/
 
 }
